@@ -2,6 +2,46 @@
 Changelog for package jsk_perception
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.2.2 (2017-07-23)
+------------------
+* add bg_label in apply_context_to_label_probability (`#2175 <https://github.com/jsk-ros-pkg/jsk_recognition/issues/2175>`_)
+  * Remove no need ~use_topic flag
+  * Refactor to handle fixed candidates in ApplyContextToLabelProbability
+  * add bg_label in apply_context_to_label_probability
+
+* fix bug in label_image_classifier (`#2174 <https://github.com/jsk-ros-pkg/jsk_recognition/issues/2174>`_)
+  * Update label_image_classifier.py
+  * fix bug in label_image_classifier
+
+* Contributors: Kentaro Wada, Shingo Kitagawa
+
+1.2.1 (2017-07-15)
+------------------
+* If chainer is not installed, use v2 (`#2167 <https://github.com/jsk-ros-pkg/jsk_recognition/issues/2167>`_)
+  * chainer can not install in ros build firm
+
+* Contributors: Kei Okada
+
+1.2.0 (2017-07-15)
+------------------
+* [jsk_perception][people_pose_estimation_2d] publish image only when subscribed (`#2164 <https://github.com/jsk-ros-pkg/jsk_recognition/issues/2164>`_)
+
+* Enhance PeoplePoseEstimation2D (`#2162 <https://github.com/jsk-ros-pkg/jsk_recognition/issues/2162>`_)
+  * Fix run_depend on rviz
+  * Install different pre-trained model according to the version of chainer
+  * Support 16UC1 depth image in PeoplePoseEstimation2D
+  * Visualize people 3D pose on rviz in sample
+  * Add orientation to people 3d pose
+  * Create point cloud in play_rosbag_people.xml
+  * Fix AttributeError of argsort in cupy == 1.0.1
+
+* [jsk_perception][jsk_recognition_utils] support chainer-v2 in alexnet and vgg16 (`#2153 <https://github.com/jsk-ros-pkg/jsk_recognition/issues/2153>`_)
+  * enable alexnet and vgg test
+  * fix syntax in vgg16_object_recognition
+  * alexnet and vgg16 support chainer-v2
+
+* Contributors: Kentaro Wada, Shingo Kitagawa, Yuki Furuta
+
 1.1.3 (2017-07-07)
 ------------------
 * [jsk_perception] add FCN-based classifiers (`#2142 <https://github.com/jsk-ros-pkg/jsk_recognition/issues/2142>`_)

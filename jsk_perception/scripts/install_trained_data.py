@@ -4,8 +4,12 @@ import argparse
 from distutils.version import LooseVersion
 import multiprocessing
 import os.path as osp
+import sys
 
-import chainer
+try:
+    import chainer
+except:
+    print('### Failed to import chainer')
 
 import jsk_data
 
@@ -120,7 +124,7 @@ def main():
 
     # node_scripts/people_pose_estimation_2d.py
     path = 'trained_data/pose_estimation_2d_chainermodel.pkl'
-    if LooseVersion(chainer.__version__) >= LooseVersion('2.0.0'):
+    if not 'chainer' in sys.modules or LooseVersion(chainer.__version__) >= LooseVersion('2.0.0'):
         # created on chainer v2.0.0
         download_data(
             pkg_name=PKG,
@@ -136,6 +140,20 @@ def main():
             url='https://drive.google.com/uc?id=0B4ysRIwB7GryNnhidGN3VVJkNVE',
             md5='4d41e1ac80185849384a67a329746115',
         )
+
+    # node_scripts/feature_based_object_recognition.py
+    download_data(
+        pkg_name=PKG,
+        path='trained_data/resnet_lsvrc2012_mean.npy',
+        url='https://drive.google.com/uc?id=0B9P1L--7Wd2vTDV3ZzUyTlBFZE0',
+        md5='00431426c4fab22985885da0e2ff31b8',
+    )
+    download_data(
+        pkg_name=PKG,
+        path='trained_data/resnet152_from_caffe.npz',
+        url='https://drive.google.com/uc?id=0B9P1L--7Wd2vQVBodlFsMnpGbkU',
+        md5='77fe66a229a2444688a21e3b63fa0661',
+    )
 
 
 if __name__ == '__main__':
